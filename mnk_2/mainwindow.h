@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void draw(QVector<double>& x,QVector<double>& y);
+    void draw(QVector<double>& x, QVector<double>& y, QVector<double> &x1, QVector<double> &y1);
     void action_mnk(double a,double b,int k);
 
     ~MainWindow();

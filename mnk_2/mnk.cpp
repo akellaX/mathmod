@@ -51,7 +51,8 @@ double mnk::integration(int a1, int b1, int c1)
  {
      vector<double>temp=mnk::ans();
      double sum=0;
+     method test(a,b,100);
      for(int i=0;i<=n;i++)
-         sum+=pow(x,i)*temp[i];
+         sum+=test.fi(x,i)*temp[i];
      return sum;
  }

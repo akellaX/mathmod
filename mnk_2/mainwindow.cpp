@@ -4,12 +4,16 @@
 #include <QDebug>
 #include "qcustomplot.h"
 using namespace std;
-void MainWindow::draw(QVector<double>& x,QVector<double>& y)
+void MainWindow::draw(QVector<double>& x,QVector<double>& y,QVector<double>& x1,QVector<double>& y1)
 {
 
         ui->widget->addGraph();
         //Говорим, что отрисовать нужно график по нашим двум массивам x и y
         ui->widget->graph(0)->setData(x, y);
+        ui->widget->addGraph();
+        //Говорим, что отрисовать нужно график по нашим двум массивам x и y
+        ui->widget->graph(1)->setData(x1, y1);
+        ui->widget->graph(1)->setPen(QColor(255, 0, 0));
 
         //Подписываем оси Ox и Oy
         ui->widget->xAxis->setLabel("x");
@@ -55,13 +59,14 @@ MainWindow::~MainWindow()
 void MainWindow::action_mnk(double a, double b, int k)
 {
     mnk test(a,b,k);
-    QVector<double> x,y;
+    QVector<double> x,y,y1;
     for(int i=a;i<=b;i+=1)
     {
         x.push_back(i);
         y.push_back(test.func(i));
+        y1.push_back(i*sin(i)+cos(i));
     }
-    draw(x,y);
+    draw(x,y,x,y1);
 
 
 }
